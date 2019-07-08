@@ -55,9 +55,15 @@ elseif (APPLE) #osx icon ressource file, provided from /packaging directory
     set(ICON_RESOURCE "${PROJECT_SOURCE_DIR}/packaging/exampleApp.icns")
 endif()
 
+
+
+QT5_WRAP_UI( UI_HEADERS MainWindow.ui)
 add_executable(exampleApp MACOSX_BUNDLE
     ${ICON_RESOURCE}
+    ${UI_HEADERS}
     ${CMAKE_CURRENT_BINARY_DIR}/version.cpp
+    MainWindow.cpp
+    MainWindow.hpp
     main.cpp)
 add_dependencies(exampleApp versionFileTouchForRebuild) # We want precise time of build in version
 target_include_directories(exampleApp PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})

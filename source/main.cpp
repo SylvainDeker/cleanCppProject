@@ -3,9 +3,10 @@
 #include <string>
 #include <vector>
 #include <QApplication>
-#include <QPushButton>
+
 
 #include "version.h"
+#include "MainWindow.hpp"
 
 using namespace std;
 
@@ -84,7 +85,7 @@ int main(int argc, char * argv[])
     
     QApplication aqt( argc, argv );
 
-    QPushButton hello( "Hello world!", 0 );
+    MainWindow hello(nullptr);
     hello.resize( 600, 300 );
 
     hello.show();
