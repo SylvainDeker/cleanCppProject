@@ -2,8 +2,9 @@
 #include <stdio.h>
 #include <string>
 #include <vector>
+#include <QApplication>
+#include <QPushButton>
 
-#include "SomeClass.h"
 #include "version.h"
 
 using namespace std;
@@ -58,13 +59,15 @@ void printHelp()
  *
  * \enduml
  */
-int main(int argc, char const* argv[])
+int main(int argc, char * argv[])
 {
     // Print help if no arguments are given
     if (argc == 1)
         printHelp();
-
+	
     // process parameters
+    
+
     int argIt;
     for (argIt = 1; argIt < argc; ++argIt)
     {
@@ -77,32 +80,14 @@ int main(int argc, char const* argv[])
         else
             break;
     }
-    // process rest of the free arguments. EG. file list, word list
-    for (; argIt < argc; ++argIt)
-        cout << argv[argIt] << endl;
 
-    /// @todo Do more stuff.
-    {
-        BaseClass c;
-        if (argc == 1)
-            c.freePtr();
-        /// @todo fix another leak
-    }
+    
+    QApplication aqt( argc, argv );
 
-    SomeClass o;
-    o.set(5);
-    cout << o.get() << endl;
+    QPushButton hello( "Hello world!", 0 );
+    hello.resize( 600, 300 );
 
-    // possible memory leak here, run with `make analyze`
-    int* a = new int(5);
-    cout << *a << endl;
-
-    if (argc == 3)
-        return 1;
-
-    // we will crash here
-    delete a;
-    cout << *a << endl;
-
-    return 0;
+    hello.show();
+    return aqt.exec(); 
+    
 }

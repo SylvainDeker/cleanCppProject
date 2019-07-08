@@ -20,11 +20,19 @@ configure_file (
 # This will force recompilation of version.o and thus forcing gcc to update __DATE__ macro.
 add_custom_target(versionFileTouchForRebuild
     COMMAND ${CMAKE_COMMAND} -E touch "${CMAKE_CURRENT_BINARY_DIR}/version.cpp")
+#------------------------------------------------------------------------------
+# Find includes in corresponding build directories
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+# Instruct CMake to run moc automatically when needed
+set(CMAKE_AUTOMOC ON)
+# Create code from a list of Qt designer ui files
+set(CMAKE_AUTOUIC ON)
 
 
 #------------------------------------------------------------------------------
 # Libraries dependencies
 find_package (Threads REQUIRED) #threading
+find_package(Qt5 COMPONENTS Widgets REQUIRED)
 
 #------------------------------------------------------------------------------
 # By using macro to add common dependencies you can avoid repetition when you have
@@ -56,6 +64,7 @@ add_executable(exampleApp MACOSX_BUNDLE
 add_dependencies(exampleApp versionFileTouchForRebuild) # We want precise time of build in version
 target_include_directories(exampleApp PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 target_link_libraries (exampleApp PRIVATE Threads::Threads)
+target_link_libraries (exampleApp PRIVATE Qt5::Widgets)
 
 if(APPLE)
     set_target_properties(exampleApp PROPERTIES MACOSX_BUNDLE_BUNDLE_NAME "exampleApp")
