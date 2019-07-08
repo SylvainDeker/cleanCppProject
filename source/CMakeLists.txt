@@ -57,13 +57,13 @@ endif()
 
 
 
-QT5_WRAP_UI( UI_HEADERS MainWindow.ui)
+QT5_WRAP_UI( UI_HEADERS qt/MainWindow.ui)
 add_executable(exampleApp MACOSX_BUNDLE
     ${ICON_RESOURCE}
     ${UI_HEADERS}
     ${CMAKE_CURRENT_BINARY_DIR}/version.cpp
-    MainWindow.cpp
-    MainWindow.hpp
+    qt/MainWindow.cpp
+    qt/MainWindow.hpp
     main.cpp)
 add_dependencies(exampleApp versionFileTouchForRebuild) # We want precise time of build in version
 target_include_directories(exampleApp PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})

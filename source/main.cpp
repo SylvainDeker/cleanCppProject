@@ -6,7 +6,7 @@
 
 
 #include "version.h"
-#include "MainWindow.hpp"
+#include "qt/MainWindow.hpp"
 
 using namespace std;
 
