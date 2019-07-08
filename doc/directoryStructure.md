@@ -36,7 +36,7 @@
         + CMakeLists.txt - tests specification
     - **external**
         + CMakeLists.txt - external projects handling (eg. Download of Catch and examples to do more)
-    - readme.md - main readme file
+    - README.md - main readme file
     - CMakeLists.md - Main CMake configuration
     - .clang-format - clang format config file
     - .clang-tidy - clang tidy config file

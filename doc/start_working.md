@@ -33,7 +33,7 @@ variable, then it will be compiled to exampleApp target.
 * **packaging/exampleApp.png** - rename file
 * **packaging/CMakeLists.txt** - change description texts, windows desktop icon name (CPACK_NSIS_DISPLAY_NAME), replace "exampleApp" strings with your new executable name
 * **test/CMakeLists.txt** - replace "exampleApp" strings with your new executable name
-* **readme.md** - replace "exampleApp" strings with your new executable name
+* **README.md** - replace "exampleApp" strings with your new executable name
 * **source/CMakeLists.txt** - replace "exampleApp" strings with your new executable name
 * **doc/start_working.md** - replace "exampleApp" strings with your new executable name
 * **doc/directoryStructure.md** - replace "exampleApp" strings with your new executable name
